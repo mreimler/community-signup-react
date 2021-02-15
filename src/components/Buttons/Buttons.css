@@ -1,0 +1,17 @@
+button {
+  font-family: 'Raleway', sans-serif;
+  cursor: pointer;
+  background-color: #8aaba0;
+  border: 2px solid #8aaba0;
+  border-radius: 50px;
+  color: #fff;
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+button:focus {
+  outline: none;
+}
