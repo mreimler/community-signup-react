@@ -1,13 +1,13 @@
 import './Buttons.css';
 
-const SignInButton = () => {
+const ToggleToSignIn = () => {
     return (
         <div>
            <button>
-            Sign In
+            Already a member? Sign In
           </button> 
         </div>
     )
 }
 
-export default SignInButton
+export default ToggleToSignIn

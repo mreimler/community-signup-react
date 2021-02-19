@@ -1,11 +1,19 @@
-import './App.css';
-import Container from './components/Container'
+import React from 'react';
 
+import './App.css';
+import RegistrationForm from './components/Forms/RegistrationForm';
 
 function App() {
   return (
-    <div>
-      <Container />
+    <div
+      style={{
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        maxWidth: '960px',
+        padding: '10px',
+      }}
+    >
+    <RegistrationForm />
     </div>
   );
 }
