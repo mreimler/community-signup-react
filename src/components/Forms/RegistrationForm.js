@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import './Forms.css';
 import SignUpButton from '../Buttons/SignUpButton';
 import ToggleToSignIn from '../Buttons/ToggleToSignIn';
+import ErrorMessage from '../ErrorMessage';
 
 function RegistrationForm () {
   const {
@@ -15,7 +16,7 @@ function RegistrationForm () {
     formState: { isSubmitting }
   } = useForm();
   const onSubmit = data => {
-    alert(JSON.stringify(data));
+    alert("You have successfully signed up! Please check your");
   };  
   const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
   const validateUserName = async value => {
@@ -38,8 +39,9 @@ function RegistrationForm () {
             id="email" 
             placeholder="Email" 
             name="Email"
-            ref={register({ required: true })}
+            ref={register({ required: true, pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ })}
             />
+            <ErrorMessage error={errors.email} />
         </div>
           <div>
             <label htmlFor="password">Password</label>
@@ -48,8 +50,9 @@ function RegistrationForm () {
               id="password"
               placeholder="Password"
               name="Password"
-              ref={register}
+              ref={register({ required: true, minLength: 8 })}
               />
+              <ErrorMessage error={errors.password} />
            </div>
           <div>
             <label htmlFor="password2">Confirm Password</label>
@@ -58,8 +61,9 @@ function RegistrationForm () {
               id="password2"
               placeholder="Confirm password"
               name="Repeat Password"
-              ref={register}
+              ref={register({ required: true, minLength: 8 })}
              />
+             <ErrorMessage error={errors.password2} />
           </div>
         <SignUpButton />
         <ToggleToSignIn />
